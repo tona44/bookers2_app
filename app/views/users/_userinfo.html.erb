@@ -1,0 +1,15 @@
+<!--部分テンプレート-->
+
+<h2>User info</h2>
+<%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback:"no_image.jpg" %>
+
+<table class="table">
+  <tr>
+    <th>name</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+  </tr>
+</table>
