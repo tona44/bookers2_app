@@ -19,7 +19,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @books = Book.all
+    @books = @user.books   # 1:Nの関係。ユーザーに紐づくbooksモデルにある本全部
+    @book_new = Book.new
   end
 
   def edit

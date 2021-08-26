@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!, except: [:top]   #未ログインの場合、URL直打ちしてもログイン画面へ
+  before_action :authenticate_user!, except: [:top,:about]   #未ログインの場合、URL直打ちしてもログイン画面へ
   
   def after_sign_in_path_for(resource)  #ログイン後にマイページへ移動
     user_path(resource)
