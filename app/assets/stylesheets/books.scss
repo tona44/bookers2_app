@@ -8,5 +8,20 @@
 }
 
 .table {
-  width: 100;
+  width: 100%;
+}
+
+mt-3 {
+  margin-top: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+form-control{
+  width: 100%;
 }

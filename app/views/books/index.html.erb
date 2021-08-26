@@ -1,14 +1,20 @@
+<br>
+<div class="container px-5 px-sm-0">
+<div class="row">
+
 <!-- サイドバー -->
-<div>
+<div class="col-md-3">
   <%= render 'users/userinfo',user: @user %>  <!--User info 部分テンプレート-->
   <%= render 'books/newbook',book: @book %>  <!--New book 部分テンプレート-->
 </div>
 
 
 <!--投稿一覧-->
+<div  class="col-md-8 offset-md-1">
 <h2>Books</h2>
 
 <table class="table">
+  
   <thead>
     <tr>
       <th><!--Profile_Image--></th>
@@ -31,4 +37,9 @@
     </tr>
   <% end %>  
   </tbody>
+  
 </table>
+</div>
+
+</div>
+</div>
