@@ -7,9 +7,14 @@ class UsersController < ApplicationController
   end
   
   def create
-    book = Book.new(book_params)
-    book.save
-    redirect_to book_path(book.id)
+    @book = Book.new(book_params)
+    if @book.save
+       redirect_to book_path(@book.id)
+    else
+       @books = Book.all
+       @user = User.find(current_user.id)
+       render 'books_path'
+    end
   end
 
   def show

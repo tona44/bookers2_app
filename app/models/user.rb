@@ -8,4 +8,6 @@ class User < ApplicationRecord
   
   attachment :profile_image  #プロフィール画像投稿をできるようにする
          
+  validates :name, presence: true
+         
 end

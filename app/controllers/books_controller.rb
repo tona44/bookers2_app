@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user.id  #投稿時にログインユーザーのidを紐付ける
+    @book.user_id = current_user.id  #ログインユーザーのidを紐付ける(@book.user_idは1:Nの関係)
     if @book.save
        redirect_to book_path(@book), notice:"You have created book successfully."
     else
@@ -22,6 +22,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @user = @book.user  # 1:Nの関係にあるもので記述可
+    @book_new = Book.new  # @bookだと新規投稿フォームに既存投稿が反映されてしまう為
   end
 
   def edit
@@ -36,7 +37,7 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.user_id = current_user.id
+    @book.user_id = current_user.id  #ログインユーザーのidを紐付ける(@book.user_idは1:Nの関係)
     if @book.update(book_params)
        redirect_to book_path(@book), notice:"You have updated book successfully."
     else

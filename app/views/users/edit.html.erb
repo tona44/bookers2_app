@@ -7,9 +7,21 @@
 
   <h2>User info</h2>
 
-<!--バリデーション-->
+<!--バリデーションメッセージ-->
+<div id="error_explanation">
+<% if @user.errors.any? %>
+ <h3><%= @user.errors.count %> errors prohibited this obj from being saved: </h3>
+  <ul>
+     <% @user.errors.full_messages.each do |message| %>
+    <li>
+     <%= message %>
+    </li>
+     <% end %>
+  </ul>
+<% end %>
+</div>
 
-<!--バリデーション-->
+
 
   <%= form_with model:@user,local: true do |f| %>
 
