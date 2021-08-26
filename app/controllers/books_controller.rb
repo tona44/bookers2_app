@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  
 
   def create
     @book = Book.new(book_params)
@@ -56,6 +57,10 @@ private
 
   def book_params
     params.require(:book).permit(:title,:body)
+  end
+  
+  def baria_user
+    
   end
 
 

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_action :redirect_login, only: [:index,:show,:edit]   #未ログインの場合、URL直打ちしてもログイン画面へ(protected以下で遷移先設定)
+  before_action :authenticate_user!, except: [:top]   #未ログインの場合、URL直打ちしてもログイン画面へ
   
   def after_sign_in_path_for(resource)  #ログイン後にマイページへ移動
     user_path(resource)
@@ -19,8 +19,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
   end
   
-  # def redirect_login
-  #   redirect_to new_user_session_path unless user_signed_in?
-  # end
 
 end
