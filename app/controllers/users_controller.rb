@@ -22,9 +22,13 @@ class UsersController < ApplicationController
   end
   
   def update
-    user = User.find(params[:id])
-    user.update
-    redirect_to user_path(user), notice:"You have updated user successfully."
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+       redirect_to user_path(@user), notice:"You have updated user successfully."
+    else
+      # 更新出来ない場合の処理（エラーメッセージを表示させるため）
+      render :edit 
+    end
   end
 
 
@@ -33,5 +37,9 @@ private
   def book_params
     params.require(:book).permit(:title,:body)
   end
-
+  
+  def user_params
+    params.require(:user).permit(:name,:introduction,:profile_image)
+  end
+  
 end
