@@ -18,3 +18,7 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
