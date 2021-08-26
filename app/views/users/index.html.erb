@@ -1,16 +1,22 @@
 <!--バリデーションチェック-->
 
+
+<div class="container px-5 px-sm-0">
+<div class="row">
+
 <!-- サイドバー -->
-<div>
+ <div class="col-md-3">
   <%= render 'users/userinfo',user: @user %>  <!--User info 部分テンプレート-->
   <%= render 'books/newbook',book: @book %>  <!--New book 部分テンプレート-->
-</div>
+ </div>
 
 
 <!--ユーザー 一覧-->
-<h2>Users</h2>
+ <div  class="col-md-8 offset-md-1">
+ <h2>Users</h2>
 
-<table class="table">
+ <table class="table">
+   
   <thead>
     <tr>
       <th>image</th>
@@ -29,4 +35,8 @@
     <% end %>
   </tbody>
   
-</table>
+ </table>
+ </div>
+
+</div>
+</div>

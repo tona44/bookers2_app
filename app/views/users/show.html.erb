@@ -1,29 +1,37 @@
 <!--views/users/show-->
 <!--処理成功メッセージ-->
+<p id="notice">
+  
+</p>
 
 
+
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    
 <!-- サイドバー -->
-<div>
-  <%= render 'users/userinfo',user: @user %>  <!--User info 部分テンプレート-->
-  <%= render 'books/newbook',book: @book %>  <!--New book 部分テンプレート-->
-</div>
+   <div  class="col-md-3">
+   <%= render 'users/userinfo',user: @user %>  <!--User info 部分テンプレート-->
+   <%= render 'books/newbook',book: @book %>  <!--New book 部分テンプレート-->
+   </div>
+  
+  
+<!--ログインユーザーの個人投稿一覧-->
+   <div  class="col-md-8 offset-md-1">
+   <h2>Books</h2>
 
-
-
-<h2>Books</h2>
-
-<table>
-  <thead>
-    <tr>
+    <table class="table table-hover table-inverse">
+      
+    <thead>
+     <tr>
       <th></th>
       <th>Title</th>
       <th>Opinion</th>
       <th></th>
-    </tr>
-  </thead>
+     </tr>
+    </thead>
   
-  <tbody>
-    <!--ログインユーザーの個人投稿一覧-->
+    <tbody>
     <% @books.each do |book| %>
     <tr>
        <td>
@@ -35,8 +43,11 @@
        <td><%= book.body %></td>
         
     <% end %>
-
     </tr>
-  </tbody>
+    </tbody>
   
-</table>
+   </table>
+   </div>
+
+  </div>
+</div>
