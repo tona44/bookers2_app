@@ -35,9 +35,7 @@
       <th><!--Profile_Image--></th>
       <th>Title</th>
       <th>Opinion</th>
-      <th colspan="3"><!--いいね--></th>
-      <th colspan="3"><!--コメント--></th>
-      <th colspan="3"></th>
+      <th colspan="3"><!--いいね/コメント/余白--></th>
     </tr>
   </thead>
   
@@ -72,6 +70,12 @@
       </td>
       
       <% end %>  
+      
+      <!--コメント機能-->
+      <td>
+        コメント数: <%= book.book_comments.count %>
+      </td>
+      
       
     </tr>
   <% end %>  

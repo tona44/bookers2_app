@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   resources :books do  #ネストが好ましい
     resource :favorites, only: [:create,:destroy]
-    #単数形にすると[/:id]のルートは生成されない（いいね、にshowページ不要の為）
+    resource :book_comments, only: [:create,:destroy]
+    #単数形にすると[/:id]のルートは生成されない（いいね・コメントにshowページ等不要の為）
   end
 
 end
