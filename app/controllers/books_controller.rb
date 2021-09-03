@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   
 
   def create
+  
     @book = Book.new(book_params)
     @book.user_id = current_user.id  #ログインユーザーのidを紐付ける(@book.user_idは1:Nの関係)
     if @book.save
@@ -59,9 +60,5 @@ private
     params.require(:book).permit(:title,:body)
   end
   
-  def baria_user
-    
-  end
-
 
 end
