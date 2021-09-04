@@ -25,6 +25,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = @book.user  # 1:Nの関係にあるもので記述可
     @book_new = Book.new  # @bookだと新規投稿フォームに既存投稿が反映されてしまう為
+    @book_comment = BookComment.new
   end
 
   def edit
