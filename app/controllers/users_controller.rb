@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user,only:[:edit,:update]
   
   def index
     @user = User.find(current_user.id)
     @users = User.all
     @book = Book.new
-    
   end
   
   def create
