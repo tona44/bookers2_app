@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @users = User.all
     @book = Book.new
+    
   end
   
   def create
@@ -21,6 +22,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books   # 1:Nの関係。ユーザーに紐づくbooksモデルにある本全部
     @book_new = Book.new
+  end
+  
+  def followings  #フォロー一覧
+    user = User.find(params[:id])
+    @users = user.followings
+  end
+  
+  def followers  #フォロワー一覧
+    user = User.find(params[:id])
+    @users = user.followers
   end
 
   def edit
