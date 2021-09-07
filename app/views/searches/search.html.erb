@@ -2,11 +2,11 @@
 <div class="container">
 
 <% if @model == 'user' %>
-  <h2>Users search for <%= @content %></h2>
+  <h2>Users search for "<%= @content %>"</h2>
   <%= render 'users/userindex', users: @records %>
 
-<% elsif @model == 'book' %>
-  <h2>Books search for <%= @content %></h2>
+<% else @model == 'book' %>
+  <h2>Books search for "<%= @content %>"</h2>
   <%= render 'books/bookindex', books: @records %>
 
 <% end %>
