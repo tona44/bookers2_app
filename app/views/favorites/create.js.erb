@@ -1,3 +1,4 @@
 <!--$()の部分のHTMLだけ、renderで部分的に右の()に更新する-->
 
-$('#favorite_btn_<% @book.id %>').html("<%= j(render 'favorites/favorite', book: @book) %>")  <!--@bookが定義されているか要確認-->
+$('#show_favorite_<%= @book.id %>').html("<%= j(render 'favorites/favorite', book: @book) %>")  <!--@bookが定義されているか要確認-->
+$('#index_favorite_<%= @book.id %>').html("<%= j(render 'favorites/favorite', book: @book) %>")  <!--@bookが定義されているか要確認-->
