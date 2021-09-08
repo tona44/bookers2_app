@@ -7,7 +7,7 @@ class BookCommentsController < ApplicationController
     @book_comment.user_id = current_user.id    # 1:Nの関係性を紐付け
 
     if @book_comment.save
-      # redirect_to book_path(@book)
+      # render先はbook_comments/create.js.erb
     else
       @user = @book.user
       render "books/show"
