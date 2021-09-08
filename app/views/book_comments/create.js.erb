@@ -1,0 +1,5 @@
+<!--$()の部分のHTMLだけ、renderで部分的に右の()に更新する-->
+
+$("textarea").val('')
+$('#comment_index_<%= @book.id %>').html("<%= j(render 'book_comments/comment_index', book: @book, book_comment: @book_comment) %>")  <!--@bookが定義されているか要確認-->
+$('#comment_count_<%= @book.id %>').html("<%= j(render 'book_comments/comment_count', book: @book, book_comment: @book_comment) %>")  <!--@bookが定義されているか要確認-->

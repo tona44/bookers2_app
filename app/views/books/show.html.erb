@@ -41,8 +41,8 @@
       </td>
 
       <!--コメント機能(表示)-->
-      <td>
-        コメント数: <%= @book.book_comments.count %>
+      <td id="comment_count_<%= @book.id %>">
+        <%= render 'book_comments/comment_count', book: @book %>  <!--コメント数　部分テンプレート)-->
       </td>
 
       <!--投稿編集ボタン-->
@@ -63,8 +63,19 @@
   </tbody>
 </table>
 
-<!--コメント機能-->
-  <%= render 'books/bookcomment', book: @book, book_comment: @book_comment %>  <!--コメント機能　部分テンプレート-->
+<!--コメント一覧-->
+<table id="comment_index_<%= @book.id %>">
+  <%= render 'book_comments/comment_index', book: @book, book_comment: @book_comment %>  <!--コメント一覧　部分テンプレート-->
+</table>
+
+<!--コメント投稿-->
+<div>
+  <%= form_with(model:[@book,@book_comment], remote: true) do |f| %>
+    <%= f.text_area :comment, rows:'5', cols:"80"%><br>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>
+
 
 </div>
 

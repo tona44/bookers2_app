@@ -7,7 +7,7 @@ class BookCommentsController < ApplicationController
     @book_comment.user_id = current_user.id    # 1:Nの関係性を紐付け
 
     if @book_comment.save
-      redirect_to book_path(@book)
+      # redirect_to book_path(@book)
     else
       @user = @book.user
       render "books/show"
@@ -19,8 +19,8 @@ class BookCommentsController < ApplicationController
     book_comment = @book.book_comments.find_by(id: params[:id])  #find_byはid以外の条件で探せる為、条件(今回はid)をparamsの前に記述
                                        #find(params[:id])でも可(@book.book_commentsで特定の本のコメント達を指定している為)
     book_comment.destroy
-    redirect_to book_path(@book)
-
+    
+    #非同期通信/リダイレクト先はbook_comments/destroy.js.erb 
   end
 
 
